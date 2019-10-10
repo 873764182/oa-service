@@ -14,7 +14,7 @@
 ```
 
 ### 前端项目地址
-[oa-client](https://github.com/873764182/oa-client).
+[oa-client](https://github.com/873764182/oa-client)
 
 ##### 项目目录结构
 ```
