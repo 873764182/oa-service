@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>接口文档</title>
+    <link type="text/css" href="https://layui.hcwl520.com.cn/layui/css/layui.css" rel="stylesheet"/>
+    <style type="text/css">
+        * {
+            font-family: PingFang SC, Lantinghei SC, Helvetica Neue, Helvetica, Arial, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, STHeitiSC-Light, simsun, \\5B8B\4F53, WenQuanYi Zen Hei, WenQuanYi Micro Hei, "sans-serif";
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<span id="testJson"></span>
+
+<div class="layui-row" style="margin: 16px">
+    <div class="layui-col-xs8 layui-col-sm8 layui-col-md8">
+        <p style="font-size: 24px; font-weight: bold; color: #3385FF;" id="titleView">
+            <%@{DOC-TITLE}%>
+        </p>
+        <span style="color: #009688; font-size: 14px;"><%@{DOC-DEPICT}%></span>
+    </div>
+    <div class="layui-col-xs4 layui-col-sm4 layui-col-md4">
+        <input type="text" class="layui-input" list="searchValueList" autocomplete="on" placeholder="搜索API接口"
+               onchange="onSearchChange(this)" style="width: 20vw; position: absolute; right: 0;"/>
+        <datalist id="searchValueList"></datalist>
+    </div>
+</div>
+<div id="publicView" style="margin: 16px; display: none;" class="layui-collapse">
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title" style='font-weight: bold; font-size: 16px; color: #3385FF;'>公共参数</h2>
+        <div class="layui-colla-content" id="publicViewContent">内容区域</div>
+    </div>
+</div>
+<div id="apisView" style="margin: 16px;"></div>
+
+<script type="text/javascript" src="https://layui.hcwl520.com.cn/layui/layui.all.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        setTimeout(function () {
+            doInit();
+        }, 500);
+    };
+
+    function doInit() {
+        document.title = layui.$("#titleView").text();
+
+        var basePackName = '<%@{DOC-PACK-NAME}%>';
+        var publicParamData = '<%@{DOC-PUBLIC-PARAM}%>';
+        if (publicParamData !== ('<%@{DOC-PUBLIC' + '-PARAM}%>')) {
+            var publicView = createPublicParamView(publicParamData);
+            layui.$("#publicViewContent").html(publicView);
+            layui.$("#publicView").show();
+        }
+        var apiJsonData = '<%@{DOC-APIS-DATA}%>';
+        var jsonApisObject = JSON.parse(apiJsonData);
+        var controllerListView = "";
+        jsonApisObject.forEach(function (object) {
+            var methodListView = "<p style='color: #009688'>控制器没有标注接口</p>";
+            var apisData = object.apis;
+            if (apisData !== undefined && apisData.length > 0) {
+                methodListView = "";
+                apisData.forEach(function (method) {
+                    methodListView += createMethodView(method);
+                });
+            }
+            methodListView = "<div class='layui-collapse' lay-accordion>" + methodListView + "</div>";
+            var depictString = "<span style='font-weight: bold; font-size: 16px;'>" + object.depict + "</span>";
+            var controllerName = " (<span style='color: #999999;'>" + object.controller + "</span>) ";
+            controllerName = controllerName.replace(basePackName, '');
+            var controllerView = "<div class='layui-colla-item' title='" + object.depict + "'>" + "  <h2 class='layui-colla-title'>" + depictString + controllerName + "</h2>" + "  <div class='layui-colla-content'>" + methodListView + "</div>" + "</div>";
+            controllerListView += controllerView;
+        });
+        var view = "<div class='layui-collapse' lay-accordion>" + controllerListView + "</div>";
+        layui.$("#apisView").html(view);
+        setTimeout(function () {
+            layui.element.init();
+        }, 500);
+
+        var passwordValue = '<%@{DOC-PASS}%>';
+        var pass = localStorage.getItem('doc-pass-data');
+        if (pass !== passwordValue) {
+            layer.open({
+                title: "输入密码",
+                content: "<div style='padding: 8px 16px 8px 16px'> <input type='password' id='passwordView' style='width: 100%; height: 32px;'></div>",
+                yes: function (index, layero) {
+                    var value = layui.$('#passwordView').val();
+                    var ePass = encodeURIComponent(value);
+                    if (ePass === passwordValue) {
+                        localStorage.setItem('doc-pass-data', ePass);
+                        layer.close(index);
+                    } else {
+                        layer.msg('密码错误');
+                    }
+                },
+                end: function () {
+                    window.location.reload();
+                }
+            });
+        }
+
+        var searchView = layui.$("#searchValueList");
+        searchView.empty();
+        var searchIndex = 0;
+        jsonApisObject.forEach(function (controller) {
+            var cn = controller.depict;
+            var apis = controller.apis;
+            if (apis != null && apis.length > 0) {
+                apis.forEach(function (api) {
+                    var depict = api.depict;
+                    var path = api.path;
+                    var title = (++searchIndex) + ". " + depict + '[' + path + ']';
+                    searchView.append("<option label='" + cn + "' value='" + title + "'/>");
+                    sessionStorage.setItem(title, JSON.stringify(api));
+                });
+            }
+        });
+
+    }
+
+    function onSearchChange(view) {
+        var string = sessionStorage.getItem(layui.$(view).val());
+        layui.layer.open({
+            type: 1,
+            title: ['接口信息', 'font-size:16px;'],
+            closeBtn: 1,
+            area: ['1024px', '700px'],
+            content: createSearchView(JSON.parse(string)),
+            end: function () {
+                layui.$(view).val('');
+            }
+        });
+    }
+
+    function createSearchView(method) {
+        var paramsView = getParamView(method.params);
+        var resultExampleView = getResultExample(method.resultExample);
+        var resultParamsView = getResultParams(method.resultParams);
+        var requestMethod = "<p style='font-weight: bold; font-size: 16px;'>" + "请求方式: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>" + method.method + "</span></p><br>";
+        if (method.method === undefined || method.method.length <= 0) {
+            requestMethod = "<p style='font-weight: bold; font-size: 16px;'>" + "请求方式: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>default</span>" + "</p><br>";
+        }
+        var pathString = "<p style='font-weight: bold; font-size: 16px;'>接口地址: <span style='color: #3385FF; font-weight: normal; margin-left: 8px;'>" + method.path + "</span></p><br>";
+        var verifyState = "<p style='font-weight: bold; font-size: 16px;'>需要登录: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>" + method.verify + "</span></p><br>";
+        var remarkString = "<p style='font-weight: bold; font-size: 16px;'>备注信息:<br><span style='color: #009688; font-weight: normal; font-size: 14px;'>" + method.remark + "</span></p><br>";
+        var depictString = "<h1 style='color: #3385FF;'>" + method.depict + "</h1><br>";
+
+        return "<div style='margin: 8px 16px'>" + depictString + pathString + verifyState + requestMethod + paramsView + resultExampleView + resultParamsView + remarkString + "</div>";
+    }
+
+    function createMethodView(method) {
+        var paramsView = getParamView(method.params);
+        var resultExampleView = getResultExample(method.resultExample);
+        var resultParamsView = getResultParams(method.resultParams);
+        var requestMethod = "<p style='font-weight: bold; font-size: 16px;'>" + "请求方式: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>" + method.method + "</span></p><br>";
+        if (method.method === undefined || method.method.length <= 0) {
+            requestMethod = "<p style='font-weight: bold; font-size: 16px;'>" + "请求方式: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>default</span>" + "</p><br>";
+        }
+        var pathString = "<p style='font-weight: bold; font-size: 16px;'>接口地址: <span style='color: #3385FF; font-weight: normal; margin-left: 8px;'>" + method.path + "</span></p><br>";
+        var verifyState = "<p style='font-weight: bold; font-size: 16px;'>需要登录: <span style='color: #009688; font-weight: normal; margin-left: 8px;'>" + method.verify + "</span></p><br>";
+        var remarkString = "<p style='font-weight: bold; font-size: 16px;'>备注信息:<br><span style='color: #009688; font-weight: normal; font-size: 14px;'>" + method.remark + "</span></p><br>";
+        var depictString = "<span style='color: #3385FF;'>" + method.depict + "</span>";
+        var methodView = "<div class='layui-colla-item' title='" + method.depict + "'>" + " <h2 class='layui-colla-title'>" + depictString + "</h2>" + " <div class='layui-colla-content'>" + "    " + pathString + verifyState + requestMethod + paramsView + resultExampleView + resultParamsView + remarkString + " </div>" + "  </div>";
+        return methodView;
+    }
+
+    function getParamView(params) {
+        if (params === undefined || params.length <= 0) {
+            return "<p style='color: #999999'><s>没有参数描述</s></p><br>";
+        }
+        var paramView = "";
+        params.forEach(function (item) {
+            var itemView = "<tr>" + "  <td>" + item.name + "</td>" + "  <td>" + item.depict + "</td>" + "  <td>" + item.type + "</td>" + "  <td>" + item.required + "</td>" + "  <td>" + item.example + "</td>" + "</tr>";
+            paramView += itemView;
+        });
+        var tableView = "<table class='layui-table' lay-size='sm'>" + "  <thead>" + "    <tr>" + "      <th>参数名称</th>" + "      <th>参数说明</th>" + "      <th>数据类型</th>" + "      <th>是否必传</th>" + "      <th>示例数据</th>" + "    </tr> " + "  </thead>" + "  <tbody>" + "   " + paramView + "  </tbody>" + "</table>";
+        return "<span style='font-size: 16px; font-weight: bold;'>参数说明</span><br>" + tableView + "<br>";
+    }
+
+    function getResultExample(example) {
+        if (example === undefined || example.length <= 0) {
+            return "<p style='color: #999999'><s>没有返回值数据示例</s></p><br>";
+        }
+        return "<span style='font-size: 16px; font-weight: bold;'>返回值示例</span><br><span style='color: #009688;'>" + example + "</span><br><br>";
+    }
+
+    function getResultParams(resultParams) {
+        if (resultParams === undefined || resultParams.length <= 0) {
+            return "<p style='color: #999999'><s>没有返回值字段说明</s></p><br>";
+        }
+        var paramView = "";
+        resultParams.forEach(function (result) {
+            var itemView = "<tr>" + "  <td>" + result.name + "</td>" + "  <td>" + result.depict + "</td>" + "  <td>" + result.type + "</td>" + "  <td>" + result.required + "</td>" + "</tr>";
+            paramView += itemView;
+        });
+        var tableView = "<table class='layui-table' lay-size='sm'>" + "  <thead>" + "    <tr>" + "      <th>字段名称</th>" + "      <th>字段说明</th>" + "      <th>数据类型</th>" + "      <th>是否必有</th>" + "    </tr> " + "  </thead>" + "  <tbody>" + "   " + paramView + "  </tbody>" + "</table>";
+        return "<span style='font-size: 16px; font-weight: bold;'>返回值说明</span><br>" + tableView + "<br>";
+    }
+
+    function createPublicParamView(publicParams) {
+        if (publicParams === undefined || publicParams.length <= 0) {
+            return "<p style='color: #999999'><s>没有返回值字段说明</s></p><br>";
+        }
+        var paramView = "";
+        JSON.parse(publicParams).forEach(function (result) {
+            var itemView = "<tr>" + "  <td>" + result.name + "</td>" + "  <td>" + result.type + "</td>" + "  <td>" + result.required + "</td>" + "  <td>" + result.place + "</td>" + "  <td>" + result.pio + "</td>" + "  <td>" + result.example + "</td>" + "  <td>" + result.depict + "</td>" + "</tr>";
+            paramView += itemView;
+        });
+        var tableView = "<table class='layui-table' lay-size='sm'>" + "  <thead>" + "    <tr>" + "      <th>参数名称</th>" + "      <th>数据类型</th>" + "      <th>是否必有</th>" + "      <th>提交位置</th>" + "      <th>出参入参</th>" + "      <th>参数示例</th>" + "      <th>参数说明</th>" + "    </tr> " + "  </thead>" + "  <tbody>" + "   " + paramView + "  </tbody>" + "</table>";
+        return tableView;
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+[
+  {
+    "controller": "com.fqchildren.course.controller.TestController",
+    "depict": "控制器描述说明",
+    "apis": [
+      {
+        "path": "/test/index",
+        "depict": "测试接口一",
+        "method": [],
+        "params": [
+          {
+            "name": "p1",
+            "depict": "参数1",
+            "required": false,
+            "type": "String",
+            "example": "1"
+          },
+          {
+            "name": "p2",
+            "depict": "参数2",
+            "required": false,
+            "type": "String",
+            "example": "2"
+          }
+        ]
+      },
+      {
+        "path": "/test/index3",
+        "depict": "测试接口三",
+        "method": [],
+        "params": [
+          {
+            "name": "p1",
+            "depict": "参数1",
+            "required": false,
+            "type": "String",
+            "example": "1"
+          },
+          {
+            "name": "p2",
+            "depict": "参数2",
+            "required": false,
+            "type": "String",
+            "example": "2"
+          }
+        ]
+      },
+      {
+        "path": "/test/index2",
+        "depict": "测试接口二",
+        "method": [],
+        "params": [
+          {
+            "name": "p1",
+            "depict": "参数1",
+            "required": false,
+            "type": "String",
+            "example": "1"
+          },
+          {
+            "name": "p2",
+            "depict": "参数2",
+            "required": false,
+            "type": "String",
+            "example": "2"
+          }
+        ],
+        "resultParams": [
+          {
+            "name": "p1",
+            "depict": "参数1",
+            "required": false,
+            "type": "String",
+            "example": "1"
+          },
+          {
+            "name": "",
+            "depict": "",
+            "required": false,
+            "type": "Other",
+            "example": ""
+          }
+        ],
+        "resultExample": "JSON"
+      }
+    ]
+  }
+]

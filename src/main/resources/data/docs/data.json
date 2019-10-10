@@ -1,0 +1,993 @@
+{
+  "/app/init.do": "程序初始化完成",
+  "/app/apis.sel": [
+    {
+      "rest": "com.fqchildren.oa.rest.RoleRest",
+      "name": "角色信息",
+      "apiList": [
+        {
+          "apis": "/role/apis.sel",
+          "name": "获取权限接口列表",
+          "depict": "获取系统中全部需要权限控制的列表接口"
+        }
+      ]
+    }
+  ],
+  "/login/exist.sel": true,
+  "/login/wxGzhId.do": {
+    "userId": "100000",
+    "regTime": 0,
+    "phone": "12345678900",
+    "email": "",
+    "wxOid": "12345678900",
+    "username": "超级管理员",
+    "photo": "",
+    "gender": 0,
+    "region": {
+      "uid": "100000",
+      "name": "中国"
+    },
+    "department": {
+      "uid": "100000",
+      "name": "总部",
+      "adminUser": "12345678900",
+      "regionId": "100000"
+    },
+    "roleList": [
+      {
+        "name": "超级管理员",
+        "depict": "系统最高权限角色",
+        "uid": "100000",
+        "time": 0
+      }
+    ],
+    "token": "61FEFC08BB8DA85546C6EE56F925F354AA3DD398675B2EDD6270469C058F4426"
+  },
+  "/login/account.do": {
+    "userId": "100000",
+    "regTime": 0,
+    "phone": "12345678900",
+    "email": "",
+    "wxOid": "",
+    "username": "超级管理员",
+    "photo": "",
+    "gender": 0,
+    "region": {
+      "uid": "100000",
+      "name": "中国"
+    },
+    "department": {
+      "uid": "100000",
+      "name": "总部",
+      "adminUser": "12345678900",
+      "regionId": "100000"
+    },
+    "roleList": [
+      {
+        "name": "超级管理员",
+        "depict": "系统最高权限角色",
+        "uid": "100000",
+        "time": 0
+      }
+    ],
+    "token": "61FEFC08BB8DA85546C6EE56F925F354B50B55D5B848FD9031722010A0F6F5FF"
+  },
+  "/login/refresh.do": {
+    "userId": "100000",
+    "regTime": 0,
+    "phone": "12345678900",
+    "email": "",
+    "wxOid": "",
+    "username": "超级管理员",
+    "photo": "",
+    "gender": 0,
+    "region": {
+      "uid": "100000",
+      "name": "中国"
+    },
+    "department": {
+      "uid": "100000",
+      "name": "总部",
+      "adminUser": "12345678900",
+      "regionId": "100000"
+    },
+    "roleList": [
+      {
+        "name": "超级管理员",
+        "depict": "系统最高权限角色",
+        "uid": "100000",
+        "time": 0
+      }
+    ],
+    "token": "61FEFC08BB8DA85546C6EE56F925F354B50B55D5B848FD9031722010A0F6F5FF"
+  },
+  "/login/register.do": {
+    "phone": "12345678901",
+    "email": "",
+    "wxOid": "",
+    "username": "",
+    "password": "9C1C9AF7AD4A4187D50FCC11C2A0B3A2",
+    "photo": "",
+    "gender": 0,
+    "regionId": "",
+    "depId": "",
+    "uid": "1301230349451335",
+    "time": 1567159782209
+  },
+  "/login/binding.do": {
+    "phone": "12345678901",
+    "email": "",
+    "wxOid": "123456",
+    "username": "",
+    "password": "",
+    "photo": "",
+    "gender": 0,
+    "regionId": "",
+    "depId": "",
+    "uid": "1301230575943751",
+    "time": 1567159890864
+  },
+  "/login/password.upd": null,
+  "/dep/dep.sel": [
+    {
+      "uid": "100000",
+      "pid": "0",
+      "time": 0,
+      "name": "总部",
+      "code": "0",
+      "adminUser": {
+        "userId": "100000",
+        "name": "超级管理员",
+        "phone": "12345678900",
+        "email": "",
+        "photo": "",
+        "gender": 0
+      },
+      "regionInfo": {
+        "regionId": "100000",
+        "name": "中国",
+        "fullName": "中国",
+        "englishName": "China"
+      }
+    }
+  ],
+  "/dep/dep.ins": {
+    "uid": "1301043619037447",
+    "pid": "100000",
+    "time": 1567070742243,
+    "name": "部门名称",
+    "code": "01",
+    "adminUser": {
+      "userId": "100000",
+      "name": "部门管理员名称",
+      "phone": "12345678900",
+      "email": "",
+      "photo": "",
+      "gender": 0
+    }
+  },
+  "/dep/dep.upd": {
+    "uid": "100000",
+    "pid": "100000",
+    "time": 0,
+    "name": "部门名称",
+    "code": "01",
+    "adminUser": {
+      "userId": "100000",
+      "name": "超级管理员",
+      "phone": "12345678900",
+      "email": "",
+      "photo": "",
+      "gender": 0
+    },
+    "regionInfo": {
+      "regionId": "100000",
+      "name": "中国",
+      "fullName": "中国",
+      "englishName": "China"
+    }
+  },
+  "/dep/dep.del": {
+    "updateUser": 0,
+    "deleteDep": 1
+  },
+  "/dep/user.sel": [
+    {
+      "phone": "12345678900",
+      "email": "",
+      "wxOid": "",
+      "username": "超级管理员",
+      "password": "C4EB5DF0250484448DB59E10C97261E4",
+      "photo": "",
+      "gender": 0,
+      "regionId": "100000",
+      "depId": "100000",
+      "uid": "100000",
+      "time": 0
+    }
+  ],
+  "/dep/user.ins": {
+    "phone": "12345678901",
+    "email": "123456@qq.com",
+    "wxOid": "",
+    "username": "测试",
+    "password": "2E1E68D1A110F418496CA50D7676D8C9",
+    "photo": "",
+    "gender": 1,
+    "regionId": "110101",
+    "depId": "100000",
+    "uid": "1308463623831616",
+    "time": 1570608876132
+  },
+  "/dep/user.do": {
+    "phone": "12345678901",
+    "email": "123456@qq.com",
+    "wxOid": "",
+    "username": "测试",
+    "password": "2E1E68D1A110F418496CA50D7676D8C9",
+    "photo": "",
+    "gender": 1,
+    "regionId": "110101",
+    "depId": "100000",
+    "uid": "1308463623831616",
+    "time": 1570608876132
+  },
+  "/dep/user.del": {
+    "phone": "12345678901",
+    "email": "123456@qq.com",
+    "wxOid": "",
+    "username": "测试",
+    "password": "2E1E68D1A110F418496CA50D7676D8C9",
+    "photo": "",
+    "gender": 1,
+    "regionId": "110101",
+    "depId": "",
+    "uid": "1308463623831616",
+    "time": 1570608876132
+  },
+  "/dep/admin.do": {
+    "pid": "0",
+    "name": "总部",
+    "code": "0",
+    "adminUser": "1308463623831616",
+    "regionId": "100000",
+    "uid": "100000",
+    "time": 0
+  },
+  "/role/role.ins": {
+    "pid": "100000",
+    "name": "财务",
+    "depict": "管理财务人员，可以访问财务相关权限",
+    "uid": "1301180193964071",
+    "time": 1567135866452
+  },
+  "/role/role.sel": [
+    {
+      "pid": "0",
+      "name": "超级管理员",
+      "depict": "系统最高权限角色",
+      "uid": "100000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "财务",
+      "depict": "管理财务人员，可以访问财务相关权限",
+      "uid": "1301180193964071",
+      "time": 1567135866452
+    }
+  ],
+  "/role/role.upd": {
+    "pid": "100000",
+    "name": "财务2",
+    "depict": "管理财务人员，可以访问财务相关权限2",
+    "uid": "1301180193964071",
+    "time": 1567135866452
+  },
+  "/role/role.del": {
+    "updateUser": 0,
+    "deleteRole": 1
+  },
+  "/role/permission.upd": {
+    "deleteCount": 1,
+    "insertCount": 2
+  },
+  "/role/permission.sel": [
+    {
+      "roleId": "100000",
+      "perId": "111111",
+      "uid": "1301190922993735",
+      "time": 1567140982331
+    },
+    {
+      "roleId": "100000",
+      "perId": "100000",
+      "uid": "1301191097057479",
+      "time": 1567141065693
+    },
+    {
+      "roleId": "100000",
+      "perId": "222222",
+      "uid": "1301190922993767",
+      "time": 1567140982335
+    }
+  ],
+  "/role/user.sel": [
+    {
+      "phone": "12345678900",
+      "roleId": "100000",
+      "userId": "100000",
+      "photo": "",
+      "username": "超级管理员"
+    }
+  ],
+  "/per/per.ins": {
+    "name": "财务接口",
+    "depict": "汇总财务相关的接口",
+    "uid": "1301187018096679",
+    "time": 1567139120173
+  },
+  "/per/per.sel": [
+    {
+      "name": "全局访问",
+      "depict": "超级管理员的配套权限",
+      "uid": "100000",
+      "time": 0
+    },
+    {
+      "name": "财务接口",
+      "depict": "汇总财务相关的接口",
+      "uid": "1301187018096679",
+      "time": 1567139120173
+    }
+  ],
+  "/per/per.upd": {
+    "name": "财务接口2",
+    "depict": "汇总财务相关的接口2",
+    "uid": "1301187018096679",
+    "time": 1567139120173
+  },
+  "/per/per.del": {
+    "apiCount": 0,
+    "infoCount": 1
+  },
+  "/per/apis.upd": {
+    "deleteCount": 15,
+    "insertCount": 3
+  },
+  "/per/apis.sel": [
+    {
+      "perId": "100000",
+      "name": "获取权限接口",
+      "depict": "获取系统中全部需要权限控制的列表接口",
+      "api": "/app/apis.sel",
+      "uid": "1301219972743399",
+      "time": 1567154834900
+    },
+    {
+      "perId": "100000",
+      "name": "删除角色",
+      "depict": "删除一个角色，同时相关的子角色也会被删除，已经引用了这个角色的用户也会被更新,返回受影响的数据统计",
+      "api": "/role/role.del",
+      "uid": "1301219972743687",
+      "time": 1567154834960
+    }
+  ],
+  "/user/user.sel": [
+    {
+      "gender": 0,
+      "regionName": "新宁县",
+      "regionFullName": "中国,湖南省,邵阳市,新宁县",
+      "photo": "",
+      "roleList": [],
+      "wxOid": "",
+      "uid": "1306095773548608",
+      "password": "123456",
+      "phone": "11111111111",
+      "regionId": "430528",
+      "depId": "",
+      "time": 1569479797048,
+      "email": "@.",
+      "username": "111"
+    },
+    {
+      "gender": 0,
+      "regionName": "中国",
+      "regionFullName": "中国",
+      "photo": "",
+      "roleList": [
+        {
+          "depict": "系统最高权限角色",
+          "roleId": "100000",
+          "name": "超级管理员"
+        }
+      ],
+      "wxOid": "",
+      "depName": "总部",
+      "uid": "100000",
+      "password": "38180678",
+      "phone": "12345678900",
+      "regionId": "100000",
+      "depId": "100000",
+      "time": 0,
+      "email": "",
+      "username": "超级管理员"
+    },
+    {
+      "gender": 0,
+      "regionName": "新屋乡",
+      "regionFullName": "中国,台湾,桃园县,新屋乡",
+      "photo": "",
+      "roleList": [],
+      "wxOid": "",
+      "uid": "1306079380111424",
+      "password": "1234567890",
+      "phone": "12345678901",
+      "regionId": "712329",
+      "depId": "",
+      "time": 1569471980920,
+      "email": "1234567890",
+      "username": "1234567890"
+    },
+    {
+      "gender": 1,
+      "regionName": "通海县",
+      "regionFullName": "中国,云南省,玉溪市,通海县",
+      "photo": "",
+      "roleList": [],
+      "wxOid": "",
+      "uid": "1306095299592256",
+      "password": "123456",
+      "phone": "12345678912",
+      "regionId": "530423",
+      "depId": "",
+      "time": 1569479571144,
+      "email": "123456",
+      "username": "2"
+    }
+  ],
+  "/user/user.ins": {
+    "phone": "12345678901",
+    "email": "",
+    "wxOid": "",
+    "username": "昵称",
+    "password": "9C1C9AF7AD4A4187D50FCC11C2A0B3A2",
+    "photo": "",
+    "gender": 0,
+    "regionId": "",
+    "depId": "",
+    "uid": "1301747268059207",
+    "time": 1567406268600
+  },
+  "/user/user.upd": {
+    "phone": "12345678901",
+    "email": "123456@qq.com",
+    "wxOid": "",
+    "username": "昵称",
+    "password": "123456",
+    "photo": "",
+    "gender": 0,
+    "regionId": "",
+    "depId": "",
+    "uid": "1301747268059207",
+    "time": 1567406268600
+  },
+  "/user/user.del": {
+    "user": 1,
+    "role": 0
+  },
+  "/user/role.sel": [
+    {
+      "userId": "100000",
+      "roleId": "100000",
+      "uid": "1301230202651559",
+      "time": 1567159712203
+    }
+  ],
+  "/user/role.upd": {
+    "deleteCount": 2,
+    "insertCount": 2
+  },
+  "/region/region.sel": [
+    {
+      "pid": "100000",
+      "name": "西藏自治区",
+      "shortName": "西藏",
+      "fullName": "中国,西藏自治区",
+      "englishName": "Tibet",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 91.1322,
+      "latitude": 29.6604,
+      "uid": "540000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "湖南省",
+      "shortName": "湖南",
+      "fullName": "中国,湖南省",
+      "englishName": "Hunan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 112.982,
+      "latitude": 28.1941,
+      "uid": "430000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "台湾",
+      "shortName": "台湾",
+      "fullName": "中国,台湾",
+      "englishName": "Taiwan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 121.509,
+      "latitude": 25.0443,
+      "uid": "710000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "云南省",
+      "shortName": "云南",
+      "fullName": "中国,云南省",
+      "englishName": "Yunnan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 102.712,
+      "latitude": 25.0406,
+      "uid": "530000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "陕西省",
+      "shortName": "陕西",
+      "fullName": "中国,陕西省",
+      "englishName": "Shaanxi",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 108.948,
+      "latitude": 34.2632,
+      "uid": "610000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "湖北省",
+      "shortName": "湖北",
+      "fullName": "中国,湖北省",
+      "englishName": "Hubei",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 114.299,
+      "latitude": 30.5844,
+      "uid": "420000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "贵州省",
+      "shortName": "贵州",
+      "fullName": "中国,贵州省",
+      "englishName": "Guizhou",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 106.713,
+      "latitude": 26.5783,
+      "uid": "520000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "重庆",
+      "shortName": "重庆",
+      "fullName": "中国,重庆",
+      "englishName": "Chongqing",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 106.505,
+      "latitude": 29.5332,
+      "uid": "500000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "澳门特别行政区",
+      "shortName": "澳门",
+      "fullName": "中国,澳门特别行政区",
+      "englishName": "Macau",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 113.549,
+      "latitude": 22.199,
+      "uid": "820000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "福建省",
+      "shortName": "福建",
+      "fullName": "中国,福建省",
+      "englishName": "Fujian",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 119.306,
+      "latitude": 26.0753,
+      "uid": "350000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "海南省",
+      "shortName": "海南",
+      "fullName": "中国,海南省",
+      "englishName": "Hainan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 110.331,
+      "latitude": 20.032,
+      "uid": "460000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "钓鱼岛",
+      "shortName": "钓鱼岛",
+      "fullName": "中国,钓鱼岛",
+      "englishName": "DiaoyuDao",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 123.478,
+      "latitude": 25.7424,
+      "uid": "900000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "浙江省",
+      "shortName": "浙江",
+      "fullName": "中国,浙江省",
+      "englishName": "Zhejiang",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 120.154,
+      "latitude": 30.2875,
+      "uid": "330000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "广西壮族自治区",
+      "shortName": "广西",
+      "fullName": "中国,广西壮族自治区",
+      "englishName": "Guangxi",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 108.32,
+      "latitude": 22.824,
+      "uid": "450000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "山西省",
+      "shortName": "山西",
+      "fullName": "中国,山西省",
+      "englishName": "Shanxi",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 112.549,
+      "latitude": 37.857,
+      "uid": "140000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "山东省",
+      "shortName": "山东",
+      "fullName": "中国,山东省",
+      "englishName": "Shandong",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 117.001,
+      "latitude": 36.6758,
+      "uid": "370000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "辽宁省",
+      "shortName": "辽宁",
+      "fullName": "中国,辽宁省",
+      "englishName": "Liaoning",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 123.429,
+      "latitude": 41.7968,
+      "uid": "210000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "青海省",
+      "shortName": "青海",
+      "fullName": "中国,青海省",
+      "englishName": "Qinghai",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 101.779,
+      "latitude": 36.6232,
+      "uid": "630000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "河北省",
+      "shortName": "河北",
+      "fullName": "中国,河北省",
+      "englishName": "Hebei",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 114.502,
+      "latitude": 38.0455,
+      "uid": "130000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "河南省",
+      "shortName": "河南",
+      "fullName": "中国,河南省",
+      "englishName": "Henan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 113.665,
+      "latitude": 34.758,
+      "uid": "410000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "宁夏回族自治区",
+      "shortName": "宁夏",
+      "fullName": "中国,宁夏回族自治区",
+      "englishName": "Ningxia",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 106.278,
+      "latitude": 38.4664,
+      "uid": "640000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "江苏省",
+      "shortName": "江苏",
+      "fullName": "中国,江苏省",
+      "englishName": "Jiangsu",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 118.767,
+      "latitude": 32.0415,
+      "uid": "320000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "安徽省",
+      "shortName": "安徽",
+      "fullName": "中国,安徽省",
+      "englishName": "Anhui",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 117.283,
+      "latitude": 31.8612,
+      "uid": "340000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "北京",
+      "shortName": "北京",
+      "fullName": "中国,北京",
+      "englishName": "Beijing",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 116.405,
+      "latitude": 39.905,
+      "uid": "110000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "黑龙江省",
+      "shortName": "黑龙江",
+      "fullName": "中国,黑龙江省",
+      "englishName": "Heilongjiang",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 126.642,
+      "latitude": 45.757,
+      "uid": "230000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "广东省",
+      "shortName": "广东",
+      "fullName": "中国,广东省",
+      "englishName": "Guangdong",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 113.281,
+      "latitude": 23.1252,
+      "uid": "440000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "香港特别行政区",
+      "shortName": "香港",
+      "fullName": "中国,香港特别行政区",
+      "englishName": "Hong Kong",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 114.173,
+      "latitude": 22.32,
+      "uid": "810000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "内蒙古自治区",
+      "shortName": "内蒙古",
+      "fullName": "中国,内蒙古自治区",
+      "englishName": "Inner Mongolia",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 111.671,
+      "latitude": 40.8183,
+      "uid": "150000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "吉林省",
+      "shortName": "吉林",
+      "fullName": "中国,吉林省",
+      "englishName": "Jilin",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 125.325,
+      "latitude": 43.8868,
+      "uid": "220000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "江西省",
+      "shortName": "江西",
+      "fullName": "中国,江西省",
+      "englishName": "Jiangxi",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 115.892,
+      "latitude": 28.6765,
+      "uid": "360000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "甘肃省",
+      "shortName": "甘肃",
+      "fullName": "中国,甘肃省",
+      "englishName": "Gansu",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 103.824,
+      "latitude": 36.058,
+      "uid": "620000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "天津",
+      "shortName": "天津",
+      "fullName": "中国,天津",
+      "englishName": "Tianjin",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 117.19,
+      "latitude": 39.1256,
+      "uid": "120000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "新疆维吾尔自治区",
+      "shortName": "新疆",
+      "fullName": "中国,新疆维吾尔自治区",
+      "englishName": "Xinjiang",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 87.6177,
+      "latitude": 43.7928,
+      "uid": "650000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "上海",
+      "shortName": "上海",
+      "fullName": "中国,上海",
+      "englishName": "Shanghai",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 121.473,
+      "latitude": 31.2317,
+      "uid": "310000",
+      "time": 0
+    },
+    {
+      "pid": "100000",
+      "name": "四川省",
+      "shortName": "四川",
+      "fullName": "中国,四川省",
+      "englishName": "Sichuan",
+      "levelType": 1,
+      "cityCode": "",
+      "zipCode": "",
+      "longitude": 104.066,
+      "latitude": 30.6595,
+      "uid": "510000",
+      "time": 0
+    }
+  ],
+  "/user/resolve.sel": "38180678",
+  "/file/logger.sel": [
+    {
+      "name": "2019-09-27.log",
+      "path": "D:\\java-app\\oa-assets\\run-logs\\2019-09-27.log",
+      "size": 745,
+      "time": 1569555158441
+    }
+  ],
+  "/file/loggerDelete.do": true
+}

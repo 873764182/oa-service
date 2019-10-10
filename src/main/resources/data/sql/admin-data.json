@@ -1,0 +1,15 @@
+[
+  {
+    "uid": "100000",
+    "time": 0,
+    "phone": "12345678900",
+    "email": "",
+    "wxOid": "",
+    "username": "超级管理员",
+    "password": "C4EB5DF0250484448DB59E10C97261E4",
+    "photo": "/favicon.ico",
+    "gender": 0,
+    "regionId": "100000",
+    "depId": "100000"
+  }
+]
