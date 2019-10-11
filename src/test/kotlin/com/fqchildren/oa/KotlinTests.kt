@@ -7,7 +7,7 @@ class KotlinTests {
 
     @Test
     fun adminPass() {
-        println(PassUtils.encryptAes("38180678"))   // C4EB5DF0250484448DB59E10C97261E4
+        println(PassUtils.encryptAes("12345678"))   // C4EB5DF0250484448DB59E10C97261E4
     }
 
 }
