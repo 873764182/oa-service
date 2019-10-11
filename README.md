@@ -13,10 +13,11 @@
 6. 提供完善且前后端完成分离的前端项目(oa-client),关于前端的内容可以前往前端项目地址查看
 ```
 
-### 前端项目地址
-[oa-client](https://github.com/873764182/oa-client)
+### 相关项目地址
+#####后端 [oa-service](https://github.com/873764182/oa-service)
+#####前端 [oa-client](https://github.com/873764182/oa-client)
 
-##### 项目目录结构
+#### 项目目录结构
 ```
 包名目录
     base: 一些基础对象和配置对象,让其他对象继承的如BaseMapper,还有Spring的配置信息
